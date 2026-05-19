@@ -1,0 +1,58 @@
+<ion-header>   
+  <ion-toolbar>     
+    <ion-title>FORMULARIO DE REGUISTRO DE ESTUDIANTES</ion-title>   
+  </ion-toolbar> 
+</ion-header>  
+<ion-content>  
+<form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+  <ion-list-header>
+    <ion-label class="titulo-centro">Reguistre Estudiante</ion-label>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-icon name="person-outline"></ion-icon>
+    <ion-label>Nombre:</ion-label>
+    <ion-input
+    type="text"
+    placeholder="Ingrese Nombres Completos"
+    name="nombre"
+    [(ngModel)]="estudiante.nombre"
+    required ></ion-input>
+  </ion-item>
+  <ion-item>   
+    <ion-icon name="mail-outline" ></ion-icon>    
+    <ion-label>Correo Institucional:</ion-label>       
+    <ion-input type="email" placeholder="Ingrese Correo" name="email" [(ngModel)]="estudiante.correo"         
+    pattern="^[a-zA-Z0-9_\-\.]+@universidad\.edu\.ec$" 
+    required>
+  </ion-input>     
+</ion-item> 
+ <ion-item>
+  <ion-icon name="school-outline"></ion-icon>
+    <ion-label>Carrera:</ion-label>
+    <ion-input
+    type="text"
+    placeholder="Ingrese La Carrera"
+    name="carrera"
+    [(ngModel)]="estudiante.carrera"
+    required ></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-icon name="book-outline"></ion-icon>
+    <ion-label>Semestre:</ion-label>
+    <ion-input
+    type="number"
+    placeholder="N° Semestre"
+    name="nombre"
+    [(ngModel)]="estudiante.semestre"
+    min="1"
+    max="10"
+    required ></ion-input>
+  </ion-item>
+  <ion-button [disabled]="formulario.invalid" 
+  type="submit"
+  expand="block">Reguistrar</ion-button>
+
+
+</form>
+</ion-content> 
